@@ -11,6 +11,16 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
+
+Route::middleware('auth')->group(function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/clients', 'ClientController');
+    Route::resource('/projects', 'ProjectController');
+    Route::resource('/tasks', 'TaskController');
+});
+
