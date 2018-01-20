@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-  <h1>Clients</h1>
+  <div class="p-4">
+    <div class="flex items-center mb-8">
+      <h1 class="mr-4">Clients</h1>
+      <a class="button text-sm" href="{{ route('clients.create') }}">New client</a>
+    </div>
 
-  <a href="{{ route('clients.create') }}">Add new</a>
-
-  <ul>
-    @foreach($clients as $client)
-      <li><a href="{{ route('clients.show', $client) }}">{{ $client->name }}</a></li>
-    @endforeach
-  </ul>
+    <div>
+      @foreach($clients as $client)
+        <div class="p">
+          <a class="text-black no-underline" href="{{ route('clients.show', $client) }}">{{ $client->name }}</a>
+        </div>
+      @endforeach
+    </div>
+  </div>
 @endsection
 

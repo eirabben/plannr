@@ -1,0 +1,16 @@
+.nav {
+
+}
+
+.nav-label {
+  @apply .block .text-grey .text-xs .px-8 .pt-6 .pb-3 .uppercase .font-medium .tracking-wide;
+}
+
+.nav-item {
+  @apply .block .text-white .no-underline .px-8 .py-3;
+
+  &:hover {
+    @apply .bg-purple-darker;
+  }
+}
+

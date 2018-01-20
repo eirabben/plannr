@@ -1,0 +1,22 @@
+.l-app {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+  "sidebar header"
+  "sidebar content";
+  height: 100vh;
+}
+
+.l-sidebar {
+  grid-area: sidebar;
+}
+
+.l-header {
+  grid-area: header;
+}
+
+.l-main {
+  overflow: auto;
+  grid-area: content;
+}

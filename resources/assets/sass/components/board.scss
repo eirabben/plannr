@@ -1,0 +1,16 @@
+.board {
+  display: grid;
+  grid-auto-columns: 270px;
+  grid-auto-flow: column;
+  grid-column-gap: 0.75rem;
+  align-items: start;
+}
+
+.card {
+  &:first-child {
+    // @apply .rounded-t;
+  }
+  &:last-child {
+    @apply .rounded-b;
+  }
+}

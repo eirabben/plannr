@@ -11,30 +11,44 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" href="https://use.typekit.net/dwk4eee.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
     {{-- <link rel="stylesheet "href="{{ asset('css/main.css') }}"> --}}
   </head>
-  <body>
-    <a class="navbar-brand" href="{{ url('/home') }}">
-      {{ config('app.name', 'Laravel') }}
-    </a>
+  <body class="bg-grey-lighter font-sans">
+    <div class="l-app">
+      <header class="l-header bg-white flex justify-end">
+        <div class="flex items-center">
+          <img class="rounded-full h-8 w-8 mr-3" src="https://placehold.it/40x40" alt="">
+          <p class="py-6 mr-8 text-grey">{{ Auth::user()->name }}</p>
 
-    <p>{{ Auth::user()->name }}</p>
+          <form class="" action="{{ route('logout') }}" method="POST">
+            {{ csrf_field() }}
+            <button class="px-8 py-6 bg-purple-lightest" type="submit">Sign out</button>
+          </form>
+        </div>
+      </header>
 
-    <form action="{{ route('logout') }}" method="POST">
-      {{ csrf_field() }}
-      <button type="submit">Logout</button>
-    </form>
+      <aside class="l-sidebar bg-purple-darkest">
+        <a class="block px-8 py-6 bg-purple-dark text-white no-underline tracking-wide" href="{{ url('/home') }}">
+          {{ config('app.name', 'Laravel') }}
+        </a>
 
-    <ul>
-      <li><a href="{{ route('home') }}">Home</a></li>
-      <li><a href="{{ route('clients.index') }}">Clients</a></li>
-      <li><a href="{{ route('projects.index') }}">Projects</a></li>
-      <li><a href="{{ route('tasks.index') }}">Tasks</a></li>
-    </ul>
+        <nav class="nav">
+          <span class="nav-label">Navigation</span>
+          <a class="nav-item" href="{{ route('home') }}">Home</a>
+          <a class="nav-item" href="{{ route('clients.index') }}">Clients</a>
+          <a class="nav-item" href="{{ route('projects.index') }}">Projects</a>
+          <a class="nav-item" href="{{ route('tasks.index') }}">Tasks</a>
+        </nav>
+      </aside>
 
-    @yield('content')
+      <main class="l-main">
+        @yield('content')
+      </main>
+      </div>
 
-    {{-- <script src="{{ asset('js/main.js') }}"></script> --}}
+    <script src="{{ asset('js/main.js') }}"></script>
   </body>
 </html>
